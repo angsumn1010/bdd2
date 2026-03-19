@@ -1,13 +1,12 @@
 import {test as base} from 'playwright-bdd'
-import {LoginPage} from '../Pages/loginPage';
-
+import * as Pages from '../Pages/index';
 type MyFixtures = {
-    login: LoginPage;
+    login: Pages.LoginPage;
 }
 
 export const test = base.extend<MyFixtures>({
     login: async ({page}, use) => {
-        const login = new LoginPage(page);
+        const login = new Pages.LoginPage(page);
         await use(login);
     }
 })
